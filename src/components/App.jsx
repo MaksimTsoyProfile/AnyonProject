@@ -1,12 +1,15 @@
 import React from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
+import ChannelsView from './ChannelsView';
+import ChatView from './ChatView';
 
 const App = ({ channels }) => (
-  <ListGroup style={{ width: '350px' }}>
-    {channels.map((channel) => (
-      <ListGroup.Item key={channel.id}>{channel.name}</ListGroup.Item>
-    ))}
-  </ListGroup>
+  <Container>
+    <Row>
+      <ChannelsView channels={channels} />
+      <ChatView />
+    </Row>
+  </Container>
 );
 
 export default App;
