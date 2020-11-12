@@ -1,12 +1,15 @@
+import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
 const rootElement = document.getElementById('chat');
 
-const app = (channels) => {
+const app = (store) => {
   ReactDOM.render(
-    <App channels={channels} />,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     rootElement,
   );
 };

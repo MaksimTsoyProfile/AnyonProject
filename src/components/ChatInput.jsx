@@ -11,13 +11,13 @@ const ChatInput = () => {
       {({ handleSubmit }) => (
         <Form onSubmit={handleSubmit}>
           <Field name="textMessage" component="input" placeholder="First Name" />
-          <Button variant="primary" type="submit">
+          <Button variant="light" type="submit" style={{ backgroundColor: '#3CB371' }}>
             Submit
           </Button>
         </Form>
       )}
     </RFForm>
   );
-}
+};
 
 export default ChatInput;

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import ChannelsView from './ChannelsView';
 import ChatView from './ChatView';
 
-const App = ({ channels }) => (
+const App = () => (
   <Container>
     <Row>
-      <ChannelsView channels={channels} />
-      <ChatView />
+      <Col><ChannelsView /></Col>
+      <Col><ChatView /></Col>
     </Row>
   </Container>
 );

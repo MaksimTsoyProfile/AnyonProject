@@ -3,15 +3,15 @@ import { Container } from 'react-bootstrap';
 import ChatInput from './ChatInput';
 
 const ChatView = () => (
-  <div style={{ marginLeft: '40px' }}>
-    <Container style={{
-      border: '2px solid black', height: '300px', width: '500px',
-    }}
+  <Container>
+    <div
+      className="container border border-secondary text-white"
+      style={{ height: '50vh', backgroundColor: '#3D998A' }}
     >
-      CHAT HERE
-    </Container>
+      Message Text
+    </div>
     <ChatInput />
-  </div>
+  </Container>
 );
 
 export default ChatView;

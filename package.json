@@ -60,6 +60,7 @@
     "react-final-form": "^6.5.2",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.7",
     "socket.io": "^2.3.0"
