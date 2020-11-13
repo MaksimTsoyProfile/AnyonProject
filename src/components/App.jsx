@@ -6,8 +6,8 @@ import ChatView from './ChatView';
 const App = () => (
   <Container>
     <Row>
-      <Col><ChannelsView /></Col>
-      <Col><ChatView /></Col>
+      <Col sm={3}><ChannelsView /></Col>
+      <Col sm={9}><ChatView /></Col>
     </Row>
   </Container>
 );

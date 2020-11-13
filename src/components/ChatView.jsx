@@ -1,16 +1,18 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import ChatInput from './ChatInput';
 
 const ChatView = () => (
   <Container>
-    <div
+    <Row
       className="container border border-secondary text-white"
       style={{ height: '50vh', backgroundColor: '#3D998A' }}
     >
       Message Text
-    </div>
-    <ChatInput />
+    </Row>
+    <Row>
+      <ChatInput />
+    </Row>
   </Container>
 );
 

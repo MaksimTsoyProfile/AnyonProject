@@ -1,13 +1,17 @@
 import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
-import gon from 'gon';
 import { uniqueId, omit } from 'lodash';
+
+const messages = handleActions({
+
+}, {});
 
 const channels = handleActions({
 
-}, gon.channels);
+}, {});
 
 const rootReducer = combineReducers({
+  messages,
   channels,
 });
 
