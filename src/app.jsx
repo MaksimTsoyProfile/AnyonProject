@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers';
 import App from './components/App';
+import './css/style.scss';
 
 const rootElement = document.getElementById('chat');
 
@@ -20,7 +21,6 @@ const app = (gon) => {
   const store = createStore(rootReducer, preloadedState, composeEnhancers(
     applyMiddleware(thunk),
   ));
-
   ReactDOM.render(
     <Provider store={store}>
       <App />
