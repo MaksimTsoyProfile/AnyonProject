@@ -3,16 +3,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
+import UserNameContext from './components/Context';
 import rootReducer from './reducers';
 import App from './components/App';
 import './css/style.scss';
 
 const rootElement = document.getElementById('chat');
 
-const app = (gon) => {
+const app = (gon, faker, cookies) => {
+  const randomName = faker.name.findName();
+
+  cookies.set('userName', randomName);
+  const userName = cookies.get('userName');
+
   const preloadedState = {
-    messages: {},
-    channels: gon.channels,
+    server: { ...gon },
+    ui: {
+      isShowModal: false,
+      isAddMessageSuccess: true,
+    },
   };
 
   /* eslint-disable*/
@@ -23,7 +32,9 @@ const app = (gon) => {
   ));
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <UserNameContext.Provider value={userName}>
+        <App />
+      </UserNameContext.Provider>
     </Provider>,
     rootElement,
   );

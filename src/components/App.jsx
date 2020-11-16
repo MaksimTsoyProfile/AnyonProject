@@ -1,14 +1,16 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ChannelsView from './ChannelsView';
-import ChatView from './ChatView';
+import MainView from './MainView';
+import ModalAddChannel from './Modal';
 
 const App = () => (
   <Container>
     <Row>
       <Col sm={3}><ChannelsView /></Col>
-      <Col sm={9}><ChatView /></Col>
+      <Col sm={9}><MainView /></Col>
     </Row>
+    <ModalAddChannel />
   </Container>
 );
 

@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git@github.com:hexlet-components/projects-frontend-l4-server.git"
   },
-  "author": "Kirill Mokevnin",
+  "author": "Maksim Tsoy",
   "license": "ISC",
   "homepage": "",
   "dependencies": {
@@ -63,7 +63,8 @@
     "redux-actions": "^2.6.5",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.7",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.2.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
