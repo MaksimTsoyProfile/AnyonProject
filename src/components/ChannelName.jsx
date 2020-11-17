@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
 import { findKey } from 'lodash';
 import { useSelector } from 'react-redux';
 
@@ -10,7 +9,7 @@ const ChannelName = () => {
 
   return (
     <div>
-      <h2 style={{ color: '#186DB6' }}>
+      <h2 className="styleCurrentChannel">
         Current channel : &quot;
         {channelName}
         &quot;

@@ -69,5 +69,64 @@ visibility: hidden;
 }
 
 body {
-  background-color: #ABEBC6;
+  --bg-color: rgba(211, 211, 211 , 100);
+  background-color: var(--bg-color);
+  --blue-color: #20b2aacc;
+  --green-color: #3CB371;
+  --red-color: red;
+  --grey-color: rgba(105, 105, 105, 100);
+}
+.styleChatContainer {
+  height: 40vh;
+  background-color: white;
+  overflow: auto;
+}
+
+#styleAddButton {
+  background-color: grey;
+  border-color: grey;
+}
+
+.styleCurrentChannel {
+  color: var(--grey-color);
+}
+
+.spanError {
+  color: var(--red-color);
+}
+.styleChannels {
+  background-color: var(--blue-color);
+  font-size: 20px;
+  color: white;
+}
+#styleSubmitButton {
+  background-color: var(--blue-color);
+  border-color: var(--grey-color);
+}
+.styleSubmitButton:hover {
+  background-color: var(--green-color)
+}
+
+.styleMessageDate {
+  font-size: 8px;
+  color: grey;
+  text-align: right;
+  display: block;
+}
+
+.styleMessageUsername {
+  font-size: 10px;
+  color: grey;
+}
+
+.styleUsernameView {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--grey-color);
+}
+
+.styleUsernameView span {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--blue-color)
 }

@@ -3,24 +3,32 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
-import UserNameContext from './components/Context';
+import UserDataContext from './components/Context';
 import rootReducer from './reducers';
 import App from './components/App';
-import './css/style.scss';
+import './scss/style.scss';
+import randomColor from './colors';
 
 const rootElement = document.getElementById('chat');
 
 const app = (gon, faker, cookies) => {
-  const randomName = faker.name.findName();
-
-  cookies.set('userName', randomName);
+  if (!cookies.get('userName')) {
+    const randomName = faker.name.findName();
+    cookies.set('userName', randomName);
+  }
+  if (!cookies.get('color')) {
+    const randomColors = randomColor();
+    cookies.set('color', randomColors);
+  }
   const userName = cookies.get('userName');
+  const color = cookies.get('color');
+  const userData = [userName, color];
 
   const preloadedState = {
     server: { ...gon },
     ui: {
       isShowModal: false,
-      isAddMessageSuccess: true,
+      isShowAlert: false,
     },
   };
 
@@ -32,9 +40,9 @@ const app = (gon, faker, cookies) => {
   ));
   ReactDOM.render(
     <Provider store={store}>
-      <UserNameContext.Provider value={userName}>
+      <UserDataContext.Provider value={userData}>
         <App />
-      </UserNameContext.Provider>
+      </UserDataContext.Provider>
     </Provider>,
     rootElement,
   );

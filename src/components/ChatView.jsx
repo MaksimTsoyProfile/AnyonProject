@@ -11,15 +11,14 @@ const ChatView = () => {
   }, [messages]);
   return (
     <Container
-      className="container border border-secondary"
-      style={{ height: '50vh', backgroundColor: 'white', overflow: 'auto' }}
+      className="styleChatContainer rounded border border-info"
       ref={messageRef}
     >
       {messages.map((message) => (
         <Alert key={message.id} variant={message.color}>
-          <h6 style={{ fontSize: '10px', color: 'grey' }}>{message.userName}</h6>
+          <h6 className="styleMessageUsername">{message.userName}</h6>
           <p>{message.text}</p>
-          <h6 style={{ fontSize: '8px', color: 'grey' }}>{message.date}</h6>
+          <h6 className="styleMessageDate">{message.date}</h6>
         </Alert>
       ))}
     </Container>

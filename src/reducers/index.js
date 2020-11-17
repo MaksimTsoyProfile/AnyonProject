@@ -28,13 +28,19 @@ const ui = handleActions({
   [actions.addMessageSuccess](state) {
     return {
       ...state,
-      isAddMessageSuccess: true,
+      isShowAlert: false,
     };
   },
   [actions.addMessageFailure](state) {
     return {
       ...state,
-      isAddMessageSuccess: false,
+      isShowAlert: true,
+    };
+  },
+  [actions.addMessageRequest](state) {
+    return {
+      ...state,
+      isShowAlert: false,
     };
   },
 }, {});

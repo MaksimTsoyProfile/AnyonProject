@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import { Row, Container } from 'react-bootstrap';
-import UserNameContext from './Context';
+import UserDataContext from './Context';
 
 const NameView = () => {
-  const userName = useContext(UserNameContext);
+  const userData = useContext(UserDataContext);
+  const [userName] = userData;
   return (
     <Container>
-      <Row style={{ fontSize: '24px', fontWeight: 'bold' }}>
+      <Row className="styleUsernameView">
         Login:
-        <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#186DB6' }}>
+        <span>
           { userName }
         </span>
       </Row>

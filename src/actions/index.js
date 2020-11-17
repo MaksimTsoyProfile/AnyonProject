@@ -20,7 +20,7 @@ export const addMessage = ({
           text,
           userName,
           color,
-          date: new Date(),
+          date: new Date().toLocaleTimeString(),
         },
       },
     });

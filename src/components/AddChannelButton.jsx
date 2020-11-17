@@ -11,7 +11,7 @@ const ButtonAddChannel = () => {
   return (
     <>
       <Button
-        style={{ backgroundColor: 'grey' }}
+        id="styleAddButton"
         onClick={onClick}
       >
         Add channel

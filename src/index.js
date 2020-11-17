@@ -5,8 +5,6 @@ import '../assets/application.scss';
 import gon from 'gon';
 import faker from 'faker';
 import cookies from 'js-cookie';
-import socket from './socket';
-
 import app from './app';
 import loading from './loading';
 
