@@ -7,12 +7,12 @@ const ChannelsView = () => {
   const channels = useSelector((state) => state.server.channels);
   return (
     <>
-      <h2 className="styleCurrentChannel">Channels:</h2>
+      <h2 className="style-current-channel">Channels:</h2>
       <ListGroup>
         {channels.map((channel) => (
           <ListGroup.Item
             key={channel.id}
-            className="styleChannels"
+            className="style-channels"
           >
             {channel.name}
           </ListGroup.Item>

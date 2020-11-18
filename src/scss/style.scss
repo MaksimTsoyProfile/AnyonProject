@@ -1,26 +1,27 @@
+$sz: 200px;
+$drtn: 1s;
+$firstcol: #ff7473;
+$secondcol: #ffc952;
+$thirdcol: #47b8e0;
+$bluecol: #20b2aacc;
+$greycol: rgba(105, 105, 105, 100);
+
 .preloader {
-  --bg-color: #34314c;
-  --size:200px;
-  --first-color:#ff7473;
-  --second-color:#ffc952;
-  --third-color:#47b8e0;
-  --thickness: 5px;
-  --duration: 1s;
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: var(--bg-color);
+  background-color: #34314c;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: var(--duration);
+  transition: $drtn;
   z-index: 2;
 }
 
 .preloader__content {
   position: relative;
-  width: var(--size);
-  height: var(--size);
+  width: $sz;
+  height: $sz;
 }
 
 .preloader__first,
@@ -30,21 +31,21 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  animation: var(--duration) linear infinite;
+  animation: $drtn linear infinite;
 }
 
 .preloader__first{
-  border-bottom: var(--thickness) solid var(--first-color);
+  border-bottom: 5px solid $firstcol;
   animation-name: first;
 }
 
 .preloader__second{
-  border-right: var(--thickness) solid var(--second-color);
+  border-right: 5px solid $secondcol;
   animation-name: second;
 }
 
 .preloader__third{
-  border-top: var(--thickness) solid var(--third-color);
+  border-top: 5px solid $thirdcol;
   animation-name: third;
 }
 
@@ -69,64 +70,53 @@ visibility: hidden;
 }
 
 body {
-  --bg-color: rgba(211, 211, 211 , 100);
-  background-color: var(--bg-color);
-  --blue-color: #20b2aacc;
-  --green-color: #3CB371;
-  --red-color: red;
-  --grey-color: rgba(105, 105, 105, 100);
+  background-color: rgba(211, 211, 211 , 100);
 }
-.styleChatContainer {
+.style-chat-container {
   height: 40vh;
   background-color: white;
   overflow: auto;
 }
 
-#styleAddButton {
+#style-add-button {
   background-color: grey;
   border-color: grey;
 }
 
-.styleCurrentChannel {
-  color: var(--grey-color);
+.style-current-channel {
+  color: $greycol;
 }
 
-.spanError {
-  color: var(--red-color);
-}
-.styleChannels {
-  background-color: var(--blue-color);
+.style-channels {
+  background-color: $bluecol;
   font-size: 20px;
   color: white;
 }
-#styleSubmitButton {
-  background-color: var(--blue-color);
-  border-color: var(--grey-color);
-}
-.styleSubmitButton:hover {
-  background-color: var(--green-color)
+#style-submit-button {
+  background-color: $bluecol;
+  border-color: $greycol;
 }
 
-.styleMessageDate {
+.style-message-date {
   font-size: 8px;
   color: grey;
   text-align: right;
   display: block;
 }
 
-.styleMessageUsername {
+.style-message-username {
   font-size: 10px;
   color: grey;
 }
 
-.styleUsernameView {
+.style-username-view {
   font-size: 24px;
   font-weight: bold;
-  color: var(--grey-color);
+  color: $greycol;
 }
 
-.styleUsernameView span {
+.style-username-view span {
   font-size: 24px;
   font-weight: bold;
-  color: var(--blue-color)
+  color: $bluecol;
 }

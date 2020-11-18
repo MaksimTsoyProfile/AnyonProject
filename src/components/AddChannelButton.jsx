@@ -9,14 +9,12 @@ const ButtonAddChannel = () => {
     dispatch(showModal());
   };
   return (
-    <>
-      <Button
-        id="styleAddButton"
-        onClick={onClick}
-      >
-        Add channel
-      </Button>
-    </>
+    <Button
+      id="style-add-button"
+      onClick={onClick}
+    >
+      Add channel
+    </Button>
   );
 };
 

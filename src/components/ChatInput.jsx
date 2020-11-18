@@ -1,17 +1,16 @@
 import React, { useContext } from 'react';
 import { Form as RFForm, Field } from 'react-final-form';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMessage } from '../actions';
+import { sendMessage } from '../actions';
 import UserDataContext from './Context';
 
 const ChatInput = () => {
   const dispatch = useDispatch();
-  const userData = useContext(UserDataContext);
-  const [userName, color] = userData;
+  const [userName, color] = useContext(UserDataContext);
   const currentChannelId = useSelector((state) => state.server.currentChannelId);
-  const onSubmit = (values, form) => {
-    dispatch(addMessage({
+  const onSubmit = async (values, form) => {
+    dispatch(sendMessage({
       text: values.text,
       userName,
       currentChannelId,
@@ -19,48 +18,36 @@ const ChatInput = () => {
     }));
     setTimeout(form.restart);
   };
-  const validate = (values) => {
-    if (!values.text) {
-      return {
-        text: 'Field is empthy ',
-      };
-    }
-    return {};
-  };
-
   return (
-    <Container className="pl-0">
-      <RFForm
-        onSubmit={onSubmit}
-        validate={validate}
-      >
-        {({ handleSubmit, pristine, submiting }) => (
-          <Form onSubmit={handleSubmit}>
-            <Field name="text">
-              {({ input }) => (
-                <>
-                  <Form.Control
-                    name={input.name}
-                    onChange={input.onChange}
-                    value={input.value}
-                    as="textarea"
-                    rows={3}
-                  />
-                </>
-              )}
-            </Field>
-            <Button
-              variant="light"
-              type="submit"
-              id="styleSubmitButton"
-              disabled={pristine || submiting}
-            >
-              Submit
-            </Button>
-          </Form>
-        )}
-      </RFForm>
-    </Container>
+    <RFForm
+      onSubmit={onSubmit}
+    >
+      {({ handleSubmit, pristine, submiting }) => (
+        <Form onSubmit={handleSubmit}>
+          <Field name="text">
+            {({ input }) => (
+              <>
+                <Form.Control
+                  name={input.name}
+                  onChange={input.onChange}
+                  value={input.value}
+                  as="textarea"
+                  rows={3}
+                />
+              </>
+            )}
+          </Field>
+          <Button
+            variant="light"
+            type="submit"
+            id="style-submit-button"
+            disabled={pristine || submiting}
+          >
+            Submit
+          </Button>
+        </Form>
+      )}
+    </RFForm>
   );
 };
 

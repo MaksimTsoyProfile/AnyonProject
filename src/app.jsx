@@ -8,6 +8,8 @@ import rootReducer from './reducers';
 import App from './components/App';
 import './scss/style.scss';
 import randomColor from './colors';
+import socket from './socket';
+import { addMessage } from './actions';
 
 const rootElement = document.getElementById('chat');
 
@@ -46,6 +48,9 @@ const app = (gon, faker, cookies) => {
     </Provider>,
     rootElement,
   );
+  socket.on('newMessage', ({ data: { attributes } }) => {
+    store.dispatch(addMessage(attributes));
+  });
 };
 
 export default app;

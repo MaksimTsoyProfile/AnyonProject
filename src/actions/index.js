@@ -3,16 +3,16 @@ import axios from 'axios';
 import routes from '../routes';
 
 export const showModal = createAction('MODAL_SHOW');
-export const hideModal = createAction('HIDE_MODAL');
+export const hideModal = createAction('MODAL_HIDE');
+export const addMessage = createAction('MESSAGE_ADD');
+export const sendMessageSuccess = createAction('SEND_MESSAGE_SUCCES');
+export const sendMessageRequest = createAction('SEND_MESSAGE_REQUEST');
+export const sendMessageFailure = createAction('SEND_MESSAGE_FAILURE');
 
-export const addMessageSuccess = createAction('ADD_MESSAGE_SUCCES');
-export const addMessageRequest = createAction('ADD_MESSAGE_REQUEST');
-export const addMessageFailure = createAction('ADD_MESSAGE_FAILURE');
-
-export const addMessage = ({
+export const sendMessage = ({
   userName, text, currentChannelId, color,
 }) => async (dispatch) => {
-  dispatch(addMessageRequest());
+  dispatch(sendMessageRequest());
   try {
     await axios.post(routes.channelMessagesPath(currentChannelId), {
       data: {
@@ -24,7 +24,8 @@ export const addMessage = ({
         },
       },
     });
+    dispatch(sendMessageSuccess());
   } catch (e) {
-    dispatch(addMessageFailure());
+    dispatch(sendMessageFailure());
   }
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import ChatInput from './ChatInput';
 import NameView from './NameView';
 import ChannelName from './ChannelName';
@@ -9,19 +9,29 @@ import AlertError from './AlertError';
 const MainView = () => (
   <Container>
     <Row>
-      <AlertError />
+      <Col>
+        <AlertError />
+      </Col>
     </Row>
     <Row>
-      <ChannelName />
+      <Col>
+        <ChannelName />
+      </Col>
     </Row>
     <Row>
-      <ChatView />
+      <Col>
+        <ChatView />
+      </Col>
     </Row>
     <Row>
-      <NameView />
+      <Col>
+        <NameView />
+      </Col>
     </Row>
     <Row>
-      <ChatInput />
+      <Col>
+        <ChatInput />
+      </Col>
     </Row>
   </Container>
 );

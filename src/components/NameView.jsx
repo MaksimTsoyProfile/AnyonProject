@@ -3,11 +3,10 @@ import { Row, Container } from 'react-bootstrap';
 import UserDataContext from './Context';
 
 const NameView = () => {
-  const userData = useContext(UserDataContext);
-  const [userName] = userData;
+  const [userName] = useContext(UserDataContext);
   return (
     <Container>
-      <Row className="styleUsernameView">
+      <Row className="style-username-view">
         Login:
         <span>
           { userName }

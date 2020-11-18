@@ -4,7 +4,7 @@ import { uniqueId, omit } from 'lodash';
 import * as actions from '../actions';
 
 const server = handleActions({
-  [actions.addMessageSuccess](state, { payload: newMessage }) {
+  [actions.addMessage](state, { payload: newMessage }) {
     return {
       ...state,
       messages: state.messages.concat(newMessage),
@@ -25,19 +25,19 @@ const ui = handleActions({
       isShowModal: false,
     };
   },
-  [actions.addMessageSuccess](state) {
+  [actions.sendMessageSuccess](state) {
     return {
       ...state,
       isShowAlert: false,
     };
   },
-  [actions.addMessageFailure](state) {
+  [actions.sendMessageFailure](state) {
     return {
       ...state,
       isShowAlert: true,
     };
   },
-  [actions.addMessageRequest](state) {
+  [actions.sendMessageRequest](state) {
     return {
       ...state,
       isShowAlert: false,
