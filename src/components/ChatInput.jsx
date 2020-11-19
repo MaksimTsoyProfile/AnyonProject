@@ -9,14 +9,13 @@ const ChatInput = () => {
   const dispatch = useDispatch();
   const [userName, color] = useContext(UserDataContext);
   const currentChannelId = useSelector((state) => state.server.currentChannelId);
-  const onSubmit = async (values, form) => {
-    dispatch(sendMessage({
+  const onSubmit = (values, form) => {
+    dispatch((sendMessage({
       text: values.text,
       userName,
       currentChannelId,
       color,
-    }));
-    setTimeout(form.restart);
+    }))).then((data) => (data ? null : form.restart()));
   };
   return (
     <RFForm

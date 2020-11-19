@@ -25,7 +25,9 @@ export const sendMessage = ({
       },
     });
     dispatch(sendMessageSuccess());
+    return null;
   } catch (e) {
     dispatch(sendMessageFailure());
+    return e;
   }
 };
