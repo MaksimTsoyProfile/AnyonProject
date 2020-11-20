@@ -1,7 +1,8 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { hideModal } from '../actions';
+import ModalForm from './ModalForm';
 
 const ModalAddChannel = () => {
   const isShowModal = useSelector((state) => state.ui.isShowModal);
@@ -12,17 +13,11 @@ const ModalAddChannel = () => {
   return (
     <Modal show={isShowModal} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Title>Channel Name</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
-        </Button>
-      </Modal.Footer>
+      <Modal.Body>
+        <ModalForm />
+      </Modal.Body>
     </Modal>
   );
 };

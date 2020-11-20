@@ -25,15 +25,13 @@ const ChatInput = () => {
         <Form onSubmit={handleSubmit}>
           <Field name="text">
             {({ input }) => (
-              <>
-                <Form.Control
-                  name={input.name}
-                  onChange={input.onChange}
-                  value={input.value}
-                  as="textarea"
-                  rows={3}
-                />
-              </>
+              <Form.Control
+                name={input.name}
+                onChange={input.onChange}
+                value={input.value}
+                as="textarea"
+                rows={3}
+              />
             )}
           </Field>
           <Button

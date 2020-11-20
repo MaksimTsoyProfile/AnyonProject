@@ -9,7 +9,7 @@ import App from './components/App';
 import './scss/style.scss';
 import randomColor from './colors';
 import socket from './socket';
-import { addMessage } from './actions';
+import { addMessage, addChannel } from './actions';
 
 const rootElement = document.getElementById('chat');
 
@@ -40,6 +40,15 @@ const app = (gon, faker, cookies) => {
   const store = createStore(rootReducer, preloadedState, composeEnhancers(
     applyMiddleware(thunk),
   ));
+
+  socket.on('newMessage', ({ data: { attributes } }) => {
+    store.dispatch(addMessage(attributes));
+  });
+  socket.on('newChannel', ({ data: { attributes } }) => {
+    console.log(attributes);
+    store.dispatch(addChannel(attributes));
+  });
+
   ReactDOM.render(
     <Provider store={store}>
       <UserDataContext.Provider value={userData}>
@@ -48,9 +57,6 @@ const app = (gon, faker, cookies) => {
     </Provider>,
     rootElement,
   );
-  socket.on('newMessage', ({ data: { attributes } }) => {
-    store.dispatch(addMessage(attributes));
-  });
 };
 
 export default app;

@@ -15,3 +15,5 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app(gon, faker, cookies);
+
+console.log(gon);

@@ -1,6 +1,5 @@
 import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
-import { uniqueId, omit } from 'lodash';
 import * as actions from '../actions';
 
 const server = handleActions({
@@ -8,6 +7,18 @@ const server = handleActions({
     return {
       ...state,
       messages: state.messages.concat(newMessage),
+    };
+  },
+  [actions.setChannel](state, { payload: channelId }) {
+    return {
+      ...state,
+      currentChannelId: channelId,
+    };
+  },
+  [actions.addChannel](state, { payload: newChannel }) {
+    return {
+      ...state,
+      channels: state.channels.concat(newChannel),
     };
   },
 }, {});
