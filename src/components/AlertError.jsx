@@ -1,16 +1,30 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Alert } from 'react-bootstrap';
+import { setShowSuccess } from '../actions';
 
 const AlertError = () => {
   const isShowAlert = useSelector((state) => state.ui.isShowAlert);
-  return (isShowAlert) ? (
-    <Alert variant="danger">
-      Соединение было прервано, Ваше сообщение не дошло до адресата!
-    </Alert>
-  ) : (
-    null
-  );
+  const isShowSuccess = useSelector((state) => state.ui.isShowSuccess);
+  const dispatch = useDispatch();
+  const closeAlert = () => {
+    dispatch(setShowSuccess());
+  };
+  if (isShowAlert) {
+    return (
+      <Alert variant="danger">
+        Соединение было прервано, Попробуйте повторить еще раз!
+      </Alert>
+    );
+  }
+  if (isShowSuccess) {
+    return (
+      <Alert variant="success" onClose={closeAlert} dismissible>
+        Операция прошла успешно!
+      </Alert>
+    );
+  }
+  return null;
 };
 
 export default AlertError;

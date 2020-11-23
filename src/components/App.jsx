@@ -1,8 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import ChannelsView from './ChannelsView';
 import MainView from './MainView';
 import ModalAddChannel from './ModalAddChannel';
+import ChannelsView from './ChannelsView';
+import ModalAlert from './ModalAlert';
+import ModalRenameChannel from './ModalRenameChannel';
 
 const App = () => (
   <Container>
@@ -11,6 +13,8 @@ const App = () => (
       <Col sm={9}><MainView /></Col>
     </Row>
     <ModalAddChannel />
+    <ModalAlert />
+    <ModalRenameChannel />
   </Container>
 );
 

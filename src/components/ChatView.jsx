@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 const ChatView = () => {
   const messages = useSelector((state) => state.server.messages);
+  const currentChannelId = useSelector((state) => state.server.currentChannelId);
   const messageRef = useRef(null);
   useEffect(() => {
     messageRef.current.scrollTo(0, 99999);
@@ -13,13 +14,15 @@ const ChatView = () => {
       className="style-chat-container rounded border border-info"
       ref={messageRef}
     >
-      {messages.map((message) => (
+      {messages.map((message) => ((message.channelId === currentChannelId) ? (
         <Alert key={message.id} variant={message.color}>
           <h6 className="style-message-username">{message.userName}</h6>
           <p>{message.text}</p>
           <h6 className="style-message-date">{message.date}</h6>
         </Alert>
-      ))}
+      ) : (
+        null
+      )))}
     </Container>
   );
 };

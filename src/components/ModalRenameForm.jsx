@@ -1,16 +1,17 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form as RFForm, Field } from 'react-final-form';
 import {
   Form, Button, Row, Col,
 } from 'react-bootstrap';
-import { sendChannel, hideModal } from '../actions';
+import { renameChannel, hideFormRename } from '../actions';
 
-const ModalForm = () => {
+const ModalRenameForm = () => {
+  const isShowFormRename = useSelector((state) => state.ui.isShowFormRename);
   const dispatch = useDispatch();
   const onSubmit = (values) => {
-    dispatch(sendChannel(values.channel));
-    dispatch(hideModal());
+    dispatch(renameChannel(isShowFormRename.id, values.channel));
+    dispatch(hideFormRename());
   };
 
   return (
@@ -49,4 +50,4 @@ const ModalForm = () => {
   );
 };
 
-export default ModalForm;
+export default ModalRenameForm;

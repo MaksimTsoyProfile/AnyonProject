@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const ChannelName = () => {
   const currentChannelId = useSelector((state) => state.server.currentChannelId);
   const channels = useSelector((state) => state.server.channels);
-  const channelName = channels[currentChannelId - 1].name;
+  const channelName = channels[currentChannelId].name;
 
   return (
     <>
