@@ -9,7 +9,7 @@ import ModalRenameChannel from './ModalRenameChannel';
 const App = () => (
   <Container>
     <Row>
-      <Col md={4} xs={8}><ChannelsView /></Col>
+      <Col md={4} xs={12}><ChannelsView /></Col>
       <Col md={8} xs={12}><MainView /></Col>
     </Row>
     <ModalAddChannel />
