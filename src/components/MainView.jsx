@@ -7,7 +7,7 @@ import ChatView from './ChatView';
 import AlertError from './AlertError';
 
 const MainView = () => (
-  <Container>
+  <Container className="p-0">
     <Row>
       <Col>
         <AlertError />
