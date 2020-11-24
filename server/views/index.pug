@@ -1,11 +1,11 @@
 doctype html
-html.h-100(lang="en")
+html(lang="en")
   head
     title= Title
     link(href=assetPath('main.css') rel="stylesheet")
     script.
       var gon = !{JSON.stringify(gon)};
-  body.d-flex.flex-column.h-100
+  body.d-flex.flex-column
     #loader
       .preloader
         .preloader__content
@@ -20,7 +20,7 @@ html.h-100(lang="en")
         ul.navbar-nav.mr-auto
           li.nav-item.active
             a.nav-link(href="/") Home
-    .container.h-100.overflow-hidden
-      .h-100#chat
+    .container.overflow-hidden
+      #chat
       // block content
     script(src=assetPath('main.js'))
