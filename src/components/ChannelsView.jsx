@@ -34,15 +34,15 @@ const ChannelsView = () => {
           >
             <Container>
               <Row>
-                <Col sm={6}>
+                <Col lg={6} md={12} xs={8}>
                   {channel.name}
                 </Col>
-                <Col sm={3}>
+                <Col lg={3} md={6} xs={2}>
                   <Button onClick={onClickRename(channel.id)} id="style-re-button">
                     <FaFeatherAlt />
                   </Button>
                 </Col>
-                <Col sm={3}>
+                <Col lg={3} md={6} xs={2}>
                   <Button onClick={onClickRemove(channel.id)} id="style-re-button">
                     <FaTrash />
                   </Button>
