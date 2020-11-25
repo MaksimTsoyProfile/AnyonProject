@@ -5,11 +5,13 @@ import {
   Form, Button, Row, Col,
 } from 'react-bootstrap';
 import { renameChannel, hideFormRename } from '../actions';
+import { startLoading } from '../loading';
 
 const ModalRenameForm = () => {
   const isShowFormRename = useSelector((state) => state.ui.isShowFormRename);
   const dispatch = useDispatch();
   const onSubmit = (values) => {
+    startLoading();
     dispatch(renameChannel(isShowFormRename.id, values.channel))
       .then(dispatch(hideFormRename()));
   };

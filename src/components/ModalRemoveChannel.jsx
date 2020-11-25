@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeChannel, hideFormRemove } from '../actions';
+import { startLoading } from '../loading';
 
 const ModalRemoveChannel = () => {
   const isShowModalAlert = useSelector((state) => state.ui.isShowModalAlert);
@@ -10,6 +11,7 @@ const ModalRemoveChannel = () => {
     dispatch(hideFormRemove());
   };
   const onClickRemove = () => {
+    startLoading();
     dispatch(removeChannel(isShowModalAlert.id))
       .then(dispatch(hideFormRemove()));
   };

@@ -6,7 +6,7 @@ import gon from 'gon';
 import faker from 'faker';
 import cookies from 'js-cookie';
 import app from './app';
-import loading from './loading';
+import { loading } from './loading';
 
 loading();
 

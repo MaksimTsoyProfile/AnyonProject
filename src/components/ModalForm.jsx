@@ -5,10 +5,12 @@ import {
   Form, Button, Row, Col,
 } from 'react-bootstrap';
 import { sendChannel, hideModal } from '../actions';
+import { startLoading } from '../loading';
 
 const ModalForm = () => {
   const dispatch = useDispatch();
   const onSubmit = (values) => {
+    startLoading();
     dispatch(sendChannel(values.channel))
       .then(dispatch(hideModal()));
   };
