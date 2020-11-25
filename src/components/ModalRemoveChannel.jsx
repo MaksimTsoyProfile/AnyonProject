@@ -1,17 +1,17 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeChannel, hideModalAlert } from '../actions';
+import { removeChannel, hideFormRemove } from '../actions';
 
-const ModalAddChannel = () => {
+const ModalRemoveChannel = () => {
   const isShowModalAlert = useSelector((state) => state.ui.isShowModalAlert);
   const dispatch = useDispatch();
   const handleClose = () => {
-    dispatch(hideModalAlert());
+    dispatch(hideFormRemove());
   };
   const onClickRemove = () => {
-    dispatch(removeChannel(isShowModalAlert.id));
-    dispatch(hideModalAlert());
+    dispatch(removeChannel(isShowModalAlert.id))
+      .then(dispatch(hideFormRemove()));
   };
   return (
     <Modal show={isShowModalAlert.isShow} onHide={handleClose}>
@@ -23,7 +23,7 @@ const ModalAddChannel = () => {
         <Button variant="secondary" onClick={handleClose}>
           Cancel
         </Button>
-        <Button variant="danger" onClick={onClickRemove}>
+        <Button variant="danger" onClick={onClickRemove} disabled={!isShowModalAlert.isShow}>
           Delete
         </Button>
       </Modal.Footer>
@@ -31,4 +31,4 @@ const ModalAddChannel = () => {
   );
 };
 
-export default ModalAddChannel;
+export default ModalRemoveChannel;

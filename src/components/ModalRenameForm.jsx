@@ -10,8 +10,8 @@ const ModalRenameForm = () => {
   const isShowFormRename = useSelector((state) => state.ui.isShowFormRename);
   const dispatch = useDispatch();
   const onSubmit = (values) => {
-    dispatch(renameChannel(isShowFormRename.id, values.channel));
-    dispatch(hideFormRename());
+    dispatch(renameChannel(isShowFormRename.id, values.channel))
+      .then(dispatch(hideFormRename()));
   };
 
   return (
@@ -22,7 +22,7 @@ const ModalRenameForm = () => {
         <Form onSubmit={handleSubmit}>
           <Row>
             <Col sm={9}>
-              <Field name="channel">
+              <Field name="channel" initialValue={isShowFormRename.initialValue}>
                 {({ input }) => (
                   <Form.Control
                     name={input.name}
@@ -40,7 +40,7 @@ const ModalRenameForm = () => {
                 id="style-submit-button"
                 disabled={pristine || submiting}
               >
-                Submit
+                Accept
               </Button>
             </Col>
           </Row>

@@ -9,8 +9,8 @@ import { sendChannel, hideModal } from '../actions';
 const ModalForm = () => {
   const dispatch = useDispatch();
   const onSubmit = (values) => {
-    dispatch(sendChannel(values.channel));
-    dispatch(hideModal());
+    dispatch(sendChannel(values.channel))
+      .then(dispatch(hideModal()));
   };
 
   return (
@@ -39,7 +39,7 @@ const ModalForm = () => {
                 id="style-submit-button"
                 disabled={pristine || submiting}
               >
-                Submit
+                Accept
               </Button>
             </Col>
           </Row>

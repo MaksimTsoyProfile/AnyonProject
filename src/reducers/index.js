@@ -140,22 +140,22 @@ const ui = handleActions({
       isShowSuccess: false,
     };
   },
-  [actions.showModalAlert](state, { payload: id }) {
+  [actions.showFormRemove](state, { payload: id }) {
     return {
       ...state,
       isShowModalAlert: { isShow: true, id },
     };
   },
-  [actions.hideModalAlert](state, { payload: id }) {
+  [actions.hideFormRemove](state, { payload: id }) {
     return {
       ...state,
       isShowModalAlert: { isShow: false, id },
     };
   },
-  [actions.showFormRename](state, { payload: id }) {
+  [actions.showFormRename](state, { payload: { id, name: initialValue } }) {
     return {
       ...state,
-      isShowFormRename: { isShow: true, id },
+      isShowFormRename: { isShow: true, id, initialValue },
     };
   },
   [actions.hideFormRename](state, { payload: id }) {

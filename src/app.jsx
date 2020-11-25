@@ -36,7 +36,7 @@ const app = (gon, faker, cookies) => {
       isShowAlert: false,
       isShowSuccess: false,
       isShowModalAlert: { isShow: false, id: null },
-      isShowFormRename: { isShow: false, id: null },
+      isShowFormRename: { isShow: false, id: null, initialValue: null },
     },
   };
 

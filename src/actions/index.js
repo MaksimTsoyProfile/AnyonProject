@@ -8,8 +8,8 @@ export const setChannel = createAction('CHANNEL_SET');
 export const removeCurrentChannel = createAction('CURRENT_CHANNEL_REMOVE');
 export const renameCurrentChannel = createAction('CURRENT_CHANNEL_RENAME');
 export const setCurrentId = createAction('CURRENT_ID_SET');
-export const showModalAlert = createAction('MODAL_ALERT_SHOW');
-export const hideModalAlert = createAction('MODAL_ALERT_HIDE');
+export const showFormRemove = createAction('FORM_REMOVE_SHOW');
+export const hideFormRemove = createAction('FORM_REMOVE_HIDE');
 export const showFormRename = createAction('FORM_RENAME_SHOW');
 export const hideFormRename = createAction('FORM_RENAME_HIDE');
 export const setShowSuccess = createAction('SHOW_SUCCESS_SET');
@@ -66,8 +66,10 @@ export const sendChannel = (channelName) => async (dispatch) => {
       },
     });
     dispatch(sendChannelSuccess());
+    return 'finish';
   } catch (e) {
     dispatch(sendChannelFailure());
+    return 'finish';
   }
 };
 

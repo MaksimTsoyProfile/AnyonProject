@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import MainView from './MainView';
 import ModalAddChannel from './ModalAddChannel';
 import ChannelsView from './ChannelsView';
-import ModalAlert from './ModalAlert';
+import ModalRemoveChannel from './ModalRemoveChannel';
 import ModalRenameChannel from './ModalRenameChannel';
 
 const App = () => (
@@ -13,7 +13,7 @@ const App = () => (
       <Col md={8} xs={12}><MainView /></Col>
     </Row>
     <ModalAddChannel />
-    <ModalAlert />
+    <ModalRemoveChannel />
     <ModalRenameChannel />
   </Container>
 );

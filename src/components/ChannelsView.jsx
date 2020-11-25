@@ -5,7 +5,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { FaFeatherAlt, FaTrash } from 'react-icons/fa';
 import AddChannelButton from './AddChannelButton';
-import { setChannel, showModalAlert, showFormRename } from '../actions';
+import { setChannel, showFormRename, showFormRemove } from '../actions';
 
 const ChannelsView = () => {
   const channels = useSelector((state) => state.server.channels);
@@ -15,11 +15,11 @@ const ChannelsView = () => {
   };
   const onClickRemove = (channelId) => (e) => {
     e.stopPropagation();
-    dispatch(showModalAlert(channelId));
+    dispatch(showFormRemove(channelId));
   };
-  const onClickRename = (channelId) => (e) => {
+  const onClickRename = ({ id, name }) => (e) => {
     e.stopPropagation();
-    dispatch(showFormRename(channelId));
+    dispatch(showFormRename({ id, name }));
   };
 
   return (
@@ -38,7 +38,7 @@ const ChannelsView = () => {
                   {channel.name}
                 </Col>
                 <Col lg={3} md={6} xs={2}>
-                  <Button onClick={onClickRename(channel.id)} id="style-re-button">
+                  <Button onClick={onClickRename({ id: channel.id, name: channel.name })} id="style-re-button">
                     <FaFeatherAlt />
                   </Button>
                 </Col>
