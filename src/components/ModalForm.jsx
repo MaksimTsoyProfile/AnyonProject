@@ -22,7 +22,7 @@ const ModalForm = () => {
       {({ handleSubmit, pristine, submiting }) => (
         <Form onSubmit={handleSubmit}>
           <Row>
-            <Col sm={9}>
+            <Col xs={9}>
               <Field name="channel">
                 {({ input }) => (
                   <Form.Control
@@ -34,7 +34,7 @@ const ModalForm = () => {
                 )}
               </Field>
             </Col>
-            <Col sm={3}>
+            <Col xs={3}>
               <Button
                 variant="light"
                 type="submit"
