@@ -23,7 +23,7 @@ const ModalRenameForm = () => {
       {({ handleSubmit, pristine, submiting }) => (
         <Form onSubmit={handleSubmit}>
           <Row>
-            <Col xs={9}>
+            <Col xs={8}>
               <Field name="channel" initialValue={isShowFormRename.initialValue}>
                 {({ input }) => (
                   <Form.Control
@@ -35,7 +35,7 @@ const ModalRenameForm = () => {
                 )}
               </Field>
             </Col>
-            <Col xs={3}>
+            <Col xs={4}>
               <Button
                 variant="light"
                 type="submit"
