@@ -26,41 +26,37 @@ const ChannelsView = () => {
     <>
       <h2 className="style-current-channel">Channels:</h2>
       <ListGroup>
-        {Object.values(channels).map((channel) => (channel.removable ? (
+        {Object.values(channels).map((channel) => (
           <ListGroup.Item
             key={channel.id}
             className="style-channels"
             onClick={onClick(channel.id)}
           >
             <Container>
-              <Row>
-                <Col lg={6} md={12} xs={8}>
-                  {channel.name}
-                </Col>
-                <Col lg={3} md={6} xs={2}>
-                  <Button onClick={onClickRename({ id: channel.id, name: channel.name })} id="style-re-button">
-                    <FaFeatherAlt />
-                  </Button>
-                </Col>
-                <Col lg={3} md={6} xs={2}>
-                  <Button onClick={onClickRemove(channel.id)} id="style-re-button">
-                    <FaTrash />
-                  </Button>
-                </Col>
-              </Row>
+              { channel.removable ? (
+                <Row>
+                  <Col lg={6} md={12} xs={8}>
+                    {channel.name}
+                  </Col>
+                  <Col lg={3} md={6} xs={2}>
+                    <Button onClick={onClickRename({ id: channel.id, name: channel.name })} id="style-re-button">
+                      <FaFeatherAlt />
+                    </Button>
+                  </Col>
+                  <Col lg={3} md={6} xs={2}>
+                    <Button onClick={onClickRemove(channel.id)} id="style-re-button">
+                      <FaTrash />
+                    </Button>
+                  </Col>
+                </Row>
+              ) : (
+                <>
+                  { channel.name }
+                </>
+              ) }
             </Container>
           </ListGroup.Item>
-        ) : (
-          <ListGroup.Item
-            key={channel.id}
-            className="style-channels"
-            onClick={onClick(channel.id)}
-          >
-            <Container>
-              { channel.name }
-            </Container>
-          </ListGroup.Item>
-        )))}
+        ))}
         <AddChannelButton />
       </ListGroup>
     </>

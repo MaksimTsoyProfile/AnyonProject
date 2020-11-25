@@ -29,7 +29,7 @@ const ChatInput = () => {
                 name={input.name}
                 onChange={input.onChange}
                 value={input.value}
-                as="textarea"
+                cols={40}
                 rows={3}
               />
             )}

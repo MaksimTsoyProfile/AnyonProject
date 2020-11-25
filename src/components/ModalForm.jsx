@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Form as RFForm, Field } from 'react-final-form';
 import {
@@ -9,12 +9,15 @@ import { startLoading } from '../loading';
 
 const ModalForm = () => {
   const dispatch = useDispatch();
+  const inputRef = useRef(null);
   const onSubmit = (values) => {
     startLoading();
     dispatch(sendChannel(values.channel))
       .then(dispatch(hideModal()));
   };
-
+  useEffect(() => {
+    inputRef.current.focus();
+  });
   return (
     <RFForm
       onSubmit={onSubmit}
@@ -30,6 +33,7 @@ const ModalForm = () => {
                     onChange={input.onChange}
                     value={input.value}
                     maxLength={9}
+                    ref={inputRef}
                   />
                 )}
               </Field>
