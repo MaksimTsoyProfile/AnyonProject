@@ -70,7 +70,8 @@ visibility: hidden;
 }
 
 body {
-  background-color: rgba(211, 211, 211 , 100);
+  background: url("../img/abc.jpeg") repeat-y;
+  background-size: 100%;
 }
 .style-chat-container {
   height: 55vh;
